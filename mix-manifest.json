@@ -1,4 +1,5 @@
 {
     "/public/css/app.min.css": "/public/css/app.min.css",
-    "/public/js/app.min.js": "/public/js/app.min.js"
+    "/public/js/app.min.js": "/public/js/app.min.js",
+    "/public/index.html": "/public/index.html"
 }

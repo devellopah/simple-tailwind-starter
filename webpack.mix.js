@@ -15,6 +15,7 @@ mix
   .postCss('src/css/app.css', 'public/css/app.min.css')
   .postCssConfig()
   .sourceMaps()
+  .copy('src/**/*.html', 'public')
   .browserSync({
     proxy: false,
     open: true,
