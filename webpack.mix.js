@@ -1,5 +1,6 @@
 require('laravel-mix-postcss-config')
-let mix = require('laravel-mix')
+const mix = require('laravel-mix')
+mix.pug = require('laravel-mix-pug-recursive');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -10,17 +11,36 @@ let mix = require('laravel-mix')
  | file for your application, as well as bundling up your JS files.
  |
  */
+
+// mix.webpackConfig({
+//   devtool: 'source-map'
+// })
+
+mix.setPublicPath('dist')
+
+if (mix.inProduction()) {
+  mix
+  .copy('src/images', 'dist/images')
+  .copy('src/fonts', 'dist/fonts')
+}
+
 mix
-  .combine('src/js/app.js', 'public/js/app.min.js')
-  .postCss('src/css/app.css', 'public/css/app.min.css')
+  .js('src/js/app.js', 'js/app.min.js')
+  .postCss('src/css/app.css', 'css/app.min.css')
   .postCssConfig()
   .sourceMaps()
-  .copy('src/**/*.html', 'public')
+  .pug('src/views/**/*.pug', 'dist', {
+    pug: {
+      pretty: true,
+      debug: true
+    }
+  })
   .browserSync({
     proxy: false,
     open: true,
+    // files: "src",
     server: {
-      baseDir: "public",
+      baseDir: "src",
     }
   })
 

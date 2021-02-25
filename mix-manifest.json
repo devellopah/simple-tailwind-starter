@@ -1,5 +1,5 @@
 {
-    "/public/css/app.min.css": "/public/css/app.min.css",
-    "/public/js/app.min.js": "/public/js/app.min.js",
-    "/public/index.html": "/public/index.html"
+    "/dist/js/app.min.js": "/dist/js/app.min.js",
+    "/dist/css/app.min.css": "/dist/css/app.min.css",
+    "/dist/home/devellopah/projects/tailwind/tailwind-starter/src/views/index.html": "/dist/home/devellopah/projects/tailwind/tailwind-starter/src/views/index.html"
 }
