@@ -18,18 +18,15 @@ mix.pug = require('laravel-mix-pug-recursive');
 
 mix.setPublicPath('dist')
 
-if (mix.inProduction()) {
-  mix
+mix
   .copy('src/images', 'dist/images')
   .copy('src/fonts', 'dist/fonts')
-}
-
-mix
   .js('src/js/app.js', 'js/app.min.js')
   .postCss('src/css/app.css', 'css/app.min.css')
   .postCssConfig()
   .sourceMaps()
   .pug('src/views/**/*.pug', 'dist', {
+    excludePath: 'src/views',
     pug: {
       pretty: true,
       debug: true
@@ -38,9 +35,9 @@ mix
   .browserSync({
     proxy: false,
     open: true,
-    // files: "src",
+    files: "src",
     server: {
-      baseDir: "src",
+      baseDir: "dist",
     }
   })
 
